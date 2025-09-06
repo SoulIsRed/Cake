@@ -116,7 +116,7 @@ body {
   animation-delay: 3.3s;
 }
 
-/* Button */
+/* Buttons */
 button {
   margin-top: 15px;
   padding: 10px 20px;
@@ -129,10 +129,23 @@ button {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeUp 0.6s ease-out forwards;
-  animation-delay: 3.8s;
 }
 button:hover {
   background: #e73370;
+}
+
+/* Message button */
+#msgBtn {
+  animation-delay: 3.8s;
+}
+
+/* Music button */
+#musicBtn {
+  animation-delay: 4.3s;
+  background: #ff80ab;
+}
+#musicBtn:hover {
+  background: #e91e63;
 }
 
 /* Hidden paragraph as a card bubble */
@@ -195,14 +208,30 @@ button:hover {
     </div>
   </div>
   <div class="message">🎉 Happy Birthday! 🎂</div>
-  <button onclick="toggleText()">My Message For You</button>
+
+  <!-- Buttons -->
+  <button id="msgBtn" onclick="toggleText()">My Message For You</button>
+  <button id="musicBtn" onclick="playMusic()">▶ Play Music</button>
+
+  <!-- Hidden Message -->
   <div class="hidden-text" id="extraText">
     Happy birthday Xyra!!! Yeah i made a literal website to greet you because ganon akong unique 😜 but anyway, I just wanna say that ever since i have decided to approach you first online might have been one of the best decisions of my life because i've never done that to socialize since ganon akong mahiyain sa mga tao and although we are opposites in life i apprieciate you for just talking to me and being a friend in general even though this school hates me (i think) but yeah gng, Stay nice and kind to everyone even if they arent nice to you and you got this i believe in you and yeahhh!!!! ANYWAY HAPPY BIRTHDAYYYYY!!!!! <3333
   </div>
 
+  <!-- Music -->
+  <audio id="bgMusic" loop>
+    <source src="ThickAndThin.mp3" type="audio/mpeg">
+  </audio>
+
 <script>
 function toggleText() {
   document.getElementById("extraText").classList.toggle("show");
+}
+
+function playMusic() {
+  const music = document.getElementById("bgMusic");
+  music.play();
+  document.getElementById("musicBtn").innerText = "🔊 Playing...";
 }
 </script>
 </body>
